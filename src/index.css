@@ -1,0 +1,449 @@
+@import url("https://fonts.cdnfonts.com/css/general-sans");
+@import "tailwindcss";
+
+body {
+  font-family: "General Sans", sans-serif;
+  width: 100dvw;
+  background-color: #dfdff0;
+  overflow-x: hidden;
+}
+
+@theme {
+  --font-zentry: "zentry", sans-serif;
+  --font-general: "general", sans-serif;
+  --font-circular: "circular-web", sans-serif;
+  --font-robert-regular: "robert-regular", sans-serif;
+  --font-robert-medium: "robert-medium", sans-serif;
+  --blue-50: #dfdff0;
+  --blue-75: #dfdff2;
+  --blue-100: #f0f2fa;
+  --blue-200: #010101;
+  --blue-300: #4fb7dd;
+  --violet-300: #5724ff;
+  --yellow-100: #8e983f;
+  --yellow-300: #edff66;
+}
+
+@layer base {
+  @font-face {
+    font-family: "circular-web";
+    src: url("/fonts/circularweb-book.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "general";
+    src: url("/fonts/general.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "robert-regular";
+    src: url("/fonts/robert-regular.woff2") format("woff2");
+  }
+  @font-face {
+    font-family: "robert-medium";
+    src: url("/fonts/robert-medium.woff2") format("woff2");
+  }
+
+  .special-font b {
+    font-family: "Zentry";
+    font-feature-settings: "ss01" on;
+  }
+}
+
+@utility border-hsla {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+@utility nav-hover-btn {
+  position: relative;
+  margin-left: 2.5rem; /* ms-10 */
+  font-family: var(--font-general);
+  font-size: 0.75rem; /* text-xs */
+  text-transform: uppercase;
+  color: var(--blue-50);
+  cursor: pointer;
+}
+
+@utility nav-hover-btn {
+  content: "";
+  position: absolute;
+  bottom: -0.125rem;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  transform-origin: bottom right;
+  transform: scaleX(0);
+  background-color: #2d2d2d; /* bg-neutral-800 */
+  transition: transform 0.3s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+@utility nav-hover-btn-af {
+  transform-origin: bottom left;
+  transform: scaleX(1);
+}
+
+@utility nav-hover-btn-dark {
+  background-color: white;
+}
+
+@utility floating-nav {
+  background-color: black;
+  border-radius: 0.5rem;
+  border: 1px solid;
+}
+
+@utility absolute-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@utility flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@utility mask-clip-path {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
+@utility hero-heading {
+  text-transform: uppercase;
+  font-family: var(--font-zentry);
+  font-weight: 900;
+  font-size: 3rem; /* text-5xl */
+}
+
+@responsive {
+  .hero-heading {
+    right: 2.5rem; /* sm:right-10 */
+    font-size: 4.5rem; /* sm:text-7xl */
+  }
+
+  .hero-heading.md {
+    font-size: 6rem; /* md:text-9xl */
+  }
+
+  .hero-heading.lg {
+    font-size: 12rem; /* lg:text-[12rem] */
+  }
+}
+
+@utility about-subtext {
+  position: absolute;
+  bottom: -80dvh;
+  left: 50%;
+  width: 100%;
+  max-width: 24rem;
+  transform: translateX(-50%);
+  text-align: center;
+  font-family: var(--font-circular);
+  font-size: 1.125rem; /* text-lg */
+}
+
+@responsive {
+  .about-subtext.md {
+    max-width: 34rem;
+  }
+}
+
+@utility about-image {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 20;
+  height: 60vh;
+  width: 24rem;
+  transform: translateX(-50%);
+  overflow: hidden;
+  border-radius: 1.5rem;
+}
+
+@responsive {
+  .about-image.md {
+    width: 30vw;
+  }
+}
+
+@utility animated-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 4.5rem; /* text-7xl */
+  text-transform: uppercase;
+  line-height: 0.8;
+  color: white;
+}
+
+@responsive {
+  .animated-title.sm {
+    padding-left: 8rem; /* sm:px-32 */
+    padding-right: 8rem;
+  }
+
+  .animated-title.md {
+    font-size: 6rem; /* md:text-[6rem] */
+  }
+}
+
+@utility animated-word {
+  font-family: var(--font-zentry);
+  font-weight: 900;
+  opacity: 0;
+  transform: translate3d(10px, 51px, -60px) rotateY(60deg) rotateX(-40deg);
+  transform-origin: 50% 50% -150px !important;
+  will-change: opacity, transform;
+}
+
+@utility bento-tilt_1 {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  grid-column: span 2;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease-out;
+}
+
+@utility bento-tilt_2 {
+  position: relative;
+  grid-column: span 1;
+  grid-row: span 1;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease-out;
+}
+
+@utility bento-title {
+  text-transform: uppercase;
+  font-family: var(--font-zentry);
+  font-weight: 900;
+  font-size: 2.5rem; /* text-4xl */
+}
+
+@responsive {
+  .bento-title.md {
+    font-size: 3.75rem; /* md:text-6xl */
+  }
+}
+
+@utility story-img-container {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  filter: url("#flt_tag");
+}
+
+@responsive {
+  .story-img-container.md {
+    height: 100dvh;
+  }
+}
+
+@utility story-img-mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
+}
+
+@responsive {
+  .story-img-mask.md {
+    left: 20%;
+    top: -10%;
+    width: 80%;
+    height: 80%;
+  }
+}
+
+@utility story-img-content {
+  position: absolute;
+  width: 100%;
+  height: 50dvh;
+  opacity: 1;
+  left: 2.5rem; /* left-10 */
+  top: 4rem; /* top-16 */
+  transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
+}
+
+@responsive {
+  .story-img-content.md {
+    height: 100dvh;
+    left: 0;
+    top: 2.5rem; /* top-10 */
+  }
+
+  .story-img-content.lg {
+    left: -300px;
+    top: -100px;
+  }
+}
+
+@utility gallery-img-container {
+  width: 16rem;
+  height: 16rem;
+  overflow: hidden;
+  background-color: var(--violet-300);
+}
+
+@utility gallery-img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+}
+
+@responsive {
+  .gallery-img-4.sm {
+    width: 20rem;
+    height: 20rem;
+  }
+
+  .gallery-img-4.md {
+    width: 25rem;
+    height: 24rem;
+    border-radius: 0.5rem;
+  }
+}
+
+@utility sword-man-clip-path {
+  clip-path: polygon(16% 0, 89% 15%, 75% 100%, 0 97%);
+}
+
+@utility contact-clip-path-1 {
+  clip-path: polygon(25% 0%, 74% 0, 69% 64%, 34% 73%);
+}
+
+@utility contact-clip-path-2 {
+  clip-path: polygon(29% 15%, 85% 30%, 50% 100%, 10% 64%);
+}
+
+@utility indicator-line {
+  height: 4px;
+  width: 1px;
+  border-radius: 9999px;
+  background-color: white;
+  transition: all 0.2s ease-in-out;
+}
+
+@utility indicator-line.active {
+  animation: indicator-line 0.5s ease infinite;
+  animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+@keyframes indicator-line {
+  0% {
+    height: 4px;
+    transform: translateY(0px);
+  }
+  50% {
+    height: 16px;
+    transform: translateY(-4px);
+  }
+  100% {
+    height: 4px;
+    transform: translateY(0px);
+  }
+}
+
+@utility three-body {
+  --uib-size: 35px;
+  --uib-speed: 0.8s;
+  --uib-color: #5d3fd3;
+  position: relative;
+  display: inline-block;
+  height: var(--uib-size);
+  width: var(--uib-size);
+  animation: spin78236 calc(var(--uib-speed) * 2.5) infinite linear;
+}
+
+@utility three-body__dot {
+  position: absolute;
+  height: 100%;
+  width: 30%;
+}
+
+@utility three-body__dot_after {
+  content: "";
+  position: absolute;
+  height: 0%;
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: var(--uib-color);
+  border-radius: 50%;
+}
+
+@utility three-body-dot-child-1 {
+  bottom: 5%;
+  left: 0;
+  transform: rotate(60deg);
+  transform-origin: 50% 85%;
+}
+
+@utility three-body-dot-child-1-after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite ease-in-out;
+  animation-delay: calc(var(--uib-speed) * -0.3);
+}
+
+@utility three-body-dot-child-2 {
+  bottom: 5%;
+  right: 0;
+  transform: rotate(-60deg);
+  transform-origin: 50% 85%;
+}
+
+@utility three-body-dot-child-2-after {
+  bottom: 0;
+  left: 0;
+  animation: wobble1 var(--uib-speed) infinite calc(var(--uib-speed) * -0.15)
+    ease-in-out;
+}
+
+@utility three-body-dot-child-3 {
+  bottom: -5%;
+  left: 0;
+  transform: translateX(116.666%);
+}
+
+@utility three-body-dot-child-3-after {
+  top: 0;
+  left: 0;
+  animation: wobble2 var(--uib-speed) infinite ease-in-out;
+}
+
+@keyframes spin78236 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes wobble1 {
+  0%,
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(-66%) scale(0.65);
+    opacity: 0.8;
+  }
+}
+
+@keyframes wobble2 {
+  0%,
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(66%) scale(0.65);
+    opacity: 0.8;
+  }
+}
