@@ -42,6 +42,10 @@ body {
     font-family: "robert-medium";
     src: url("/fonts/robert-medium.woff2") format("woff2");
   }
+  @font-face {
+    font-family: "zentry";
+    src: url("/fonts/zentry-regular.woff2") format("woff2");
+  }
 
   .special-font b {
     font-family: "Zentry";
